@@ -5,6 +5,7 @@ var updateBtn
 var network
 var currentNetWork = ''
 var networks = {
+  'Cerebro': 'cerebro',
   'Main': '',
   'Ropsten': 'ropsten',
   'Kovan': 'kovan',
