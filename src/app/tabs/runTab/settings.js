@@ -110,10 +110,10 @@ class SettingsUI {
         <div class="${css.gasValueContainer}">
           <input type="text" class="form-control ${css.gasNval} ${css.col2}" id="value" value="0" title="Enter the value and choose the unit">
           <select name="unit" class="form-control p-1 ${css.gasNvalUnit} ${css.col2_2}" id="unit">
-            <option data-unit="wei">wei</option>
-            <option data-unit="gwei">gwei</option>
+            <option data-unit="turing">turing</option>
+            <option data-unit="cajal">cajal</option>
             <option data-unit="finney">finney</option>
-            <option data-unit="ether">ether</option>
+            <option data-unit="cortex">cortex</option>
           </select>
         </div>
       </div>

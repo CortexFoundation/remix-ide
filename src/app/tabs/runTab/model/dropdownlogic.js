@@ -97,19 +97,19 @@ class DropdownLogic {
     }
   }
 
-  fromWei (value, doTypeConversion, unit) {
+  fromTuring (value, doTypeConversion, unit) {
     if (doTypeConversion) {
-      return executionContext.web3().fromWei(typeConversion.toInt(value), unit || 'ether')
+      return executionContext.web3().fromTuring(typeConversion.toInt(value), unit || 'cortex')
     }
-    return executionContext.web3().fromWei(value.toString(10), unit || 'ether')
+    return executionContext.web3().fromTuring(value.toString(10), unit || 'cortex')
   }
 
-  toWei (value, unit) {
-    return executionContext.web3().toWei(value, unit || 'gwei')
+  toTuring (value, unit) {
+    return executionContext.web3().toTuring(value, unit || 'turing')
   }
 
   calculateFee (gas, gasPrice, unit) {
-    return executionContext.web3().toBigNumber(gas).mul(executionContext.web3().toBigNumber(executionContext.web3().toWei(gasPrice.toString(10), unit || 'gwei')))
+    return executionContext.web3().toBigNumber(gas).mul(executionContext.web3().toBigNumber(executionContext.web3().toTuring(gasPrice.toString(10), unit || 'turing')))
   }
 
   getGasPrice (cb) {
@@ -132,7 +132,7 @@ class DropdownLogic {
       if (network.name !== 'Main') {
         return continueTxExecution(null)
       }
-      var amount = executionContext.web3().fromWei(typeConversion.toInt(tx.value), 'ether')
+      var amount = executionContext.web3().fromTuring(typeConversion.toInt(tx.value), 'cortex')
 
       // TODO: there is still a UI dependency to remove here, it's still too coupled at this point to remove easily
       var content = confirmDialog(tx, amount, gasEstimation, this.recorder,
@@ -141,8 +141,8 @@ class DropdownLogic {
           // TODO: this try catch feels like an anti pattern, can/should be
           // removed, but for now keeping the original logic
           try {
-            var fee = executionContext.web3().toBigNumber(tx.gas).mul(executionContext.web3().toBigNumber(executionContext.web3().toWei(gasPrice.toString(10), 'gwei')))
-            txFeeText = ' ' + executionContext.web3().fromWei(fee.toString(10), 'ether') + ' Ether'
+            var fee = executionContext.web3().toBigNumber(tx.gas).mul(executionContext.web3().toBigNumber(executionContext.web3().toTuring(gasPrice.toString(10), 'turing')))
+            txFeeText = ' ' + executionContext.web3().fromTuring(fee.toString(10), 'cortex') + ' Cortex'
             priceStatus = true
           } catch (e) {
             txFeeText = ' Please fix this issue before sending any transaction. ' + e.message
@@ -157,7 +157,7 @@ class DropdownLogic {
               return cb('Unable to retrieve the current network gas price.' + warnMessage + error)
             }
             try {
-              var gasPriceValue = executionContext.web3().fromWei(gasPrice.toString(10), 'gwei')
+              var gasPriceValue = executionContext.web3().fromTuring(gasPrice.toString(10), 'turing')
               cb(null, gasPriceValue)
             } catch (e) {
               cb(warnMessage + e.message, null, false)
@@ -173,7 +173,7 @@ class DropdownLogic {
             if (!content.gasPriceStatus) {
               cancelCb('Given gas price is not correct')
             } else {
-              var gasPrice = executionContext.web3().toWei(content.querySelector('#gasprice').value, 'gwei')
+              var gasPrice = executionContext.web3().toTuring(content.querySelector('#gasprice').value, 'turing')
               continueTxExecution(gasPrice)
             }
           }}, {
@@ -210,7 +210,7 @@ class DropdownLogic {
       if (network.name !== 'Main') {
         return continueTxExecution(null)
       }
-      var amount = this.fromWei(tx.value, true, 'ether')
+      var amount = this.fromTuring(tx.value, true, 'cortex')
       var content = confirmDialog(tx, amount, gasEstimation, null,
         (gasPrice, cb) => {
           let txFeeText, priceStatus
@@ -218,7 +218,7 @@ class DropdownLogic {
           // removed, but for now keeping the original logic
           try {
             var fee = this.calculateFee(tx.gas, gasPrice)
-            txFeeText = ' ' + this.fromWei(fee, false, 'ether') + ' Ether'
+            txFeeText = ' ' + this.fromTuring(fee, false, 'cortex') + ' Cortex'
             priceStatus = true
           } catch (e) {
             txFeeText = ' Please fix this issue before sending any transaction. ' + e.message
@@ -233,7 +233,7 @@ class DropdownLogic {
               return cb('Unable to retrieve the current network gas price.' + warnMessage + error)
             }
             try {
-              var gasPriceValue = this.fromWei(gasPrice, false, 'gwei')
+              var gasPriceValue = this.fromTuring(gasPrice, false, 'turing')
               cb(null, gasPriceValue)
             } catch (e) {
               cb(warnMessage + e.message, null, false)
@@ -249,7 +249,7 @@ class DropdownLogic {
             if (!content.gasPriceStatus) {
               cancelCb('Given gas price is not correct')
             } else {
-              var gasPrice = this.toWei(content.querySelector('#gasprice').value, 'gwei')
+              var gasPrice = this.toTuring(content.querySelector('#gasprice').value, 'turing')
               continueTxExecution(gasPrice)
             }
           }}, {

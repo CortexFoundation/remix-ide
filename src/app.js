@@ -36,8 +36,8 @@ const PluginManagerComponent = require('./app/components/plugin-manager-componen
 const CompileTab = require('./app/tabs/compile-tab')
 const SettingsTab = require('./app/tabs/settings-tab')
 const AnalysisTab = require('./app/tabs/analysis-tab')
-const DebuggerTab = require('./app/tabs/debugger-tab')
-const TestTab = require('./app/tabs/test-tab')
+//const DebuggerTab = require('./app/tabs/debugger-tab')
+//const TestTab = require('./app/tabs/test-tab')
 const RunTab = require('./app/tabs/run-tab')
 const FilePanel = require('./app/panels/file-panel')
 
@@ -240,7 +240,7 @@ module.exports = App
 
 function run () {
   var self = this
-
+  
   if (window.location.hostname === 'yann300.github.io') {
     modalDialogCustom.alert('This UNSTABLE ALPHA branch of Remix has been moved to http://ethereum.github.io/remix-live-alpha.')
   } else if (window.location.hostname === 'remix-alpha.ethereum.org' ||
@@ -408,12 +408,15 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
       appManager
   )
   let analysis = new AnalysisTab(registry)
-  let debug = new DebuggerTab()
+  //let debug = new DebuggerTab()
+  /*
   let test = new TestTab(
     registry.get('filemanager').api,
     registry.get('filepanel').api,
     compileTab
   )
+  */
+
   let sourceHighlighters = registry.get('editor').api.sourceHighlighters
 
   appManager.init([
@@ -431,9 +434,9 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
   appManager.registerMany([
     compileTab.api(),
     run.api(),
-    debug.api(),
+    //debug.api(),
     analysis.api(),
-    test.api(),
+    //test.api(),
     filePanel.remixdHandle.api(),
     ...appManager.plugins()
   ])
@@ -460,13 +463,15 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
   if (filesToLoad !== null) {
     self.loadFiles(filesToLoad)
   }
-
+  
+  /*
   const txLogger = new TxLogger() // eslint-disable-line
   txLogger.event.register('debuggingRequested', (hash) => {
     if (!appStore.isActive('debugger')) appManager.activateOne('debugger')
     debug.debugger().debug(hash)
     verticalIcons.select('debugger')
   })
+  */
 
   let transactionContextAPI = {
     getAddress: (cb) => {
@@ -478,11 +483,11 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
         var select = document.getElementById('unit')
         var index = select.selectedIndex
         var selectedUnit = select.querySelectorAll('option')[index].dataset.unit
-        var unit = 'ether' // default
-        if (['ether', 'finney', 'gwei', 'wei'].indexOf(selectedUnit) >= 0) {
+        var unit = 'cortex' // default
+        if (['cortex', 'finney', 'cajal', 'turing'].indexOf(selectedUnit) >= 0) {
           unit = selectedUnit
         }
-        cb(null, executionContext.web3().toWei(number, unit))
+        cb(null, executionContext.web3().toTuring(number, unit))
       } catch (e) {
         cb(e)
       }
