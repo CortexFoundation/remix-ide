@@ -23,7 +23,8 @@ export const defaultWorkspaces = (appManager) => {
         appManager.ensureActivated('solidityUnitTesting')
         globalRegistry.get('verticalicon').api.select('solidity')
       }, () => {}),
-    new Workspace(
+    /*
+      new Workspace(
       'Vyper',
       'Vyper is a contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM)',
       true,
@@ -35,10 +36,12 @@ export const defaultWorkspaces = (appManager) => {
     new Workspace('Debugger', 'Debug transactions with remix', false, () => {
       appManager.ensureActivated('debugger')
     }, () => {}),
+    
     new Workspace('Pipeline', '', false, () => {
       appManager.ensureActivated('solidity')
       appManager.ensureActivated('pipeline')
       appManager.ensureActivated('run')
     })
+    */
   ]
 }

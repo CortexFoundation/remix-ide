@@ -22,7 +22,7 @@ var Renderer = require('./app/ui/renderer')
 var executionContext = require('./execution-context')
 var examples = require('./app/editor/example-contracts')
 var modalDialogCustom = require('./app/ui/modal-dialog-custom')
-var TxLogger = require('./app/execution/txLogger')
+// var TxLogger = require('./app/execution/txLogger')
 var Txlistener = remixLib.execution.txListener
 var EventsDecoder = remixLib.execution.EventsDecoder
 var FileManager = require('./app/files/fileManager')
@@ -36,8 +36,8 @@ const PluginManagerComponent = require('./app/components/plugin-manager-componen
 const CompileTab = require('./app/tabs/compile-tab')
 const SettingsTab = require('./app/tabs/settings-tab')
 const AnalysisTab = require('./app/tabs/analysis-tab')
-//const DebuggerTab = require('./app/tabs/debugger-tab')
-//const TestTab = require('./app/tabs/test-tab')
+// const DebuggerTab = require('./app/tabs/debugger-tab')
+// const TestTab = require('./app/tabs/test-tab')
 const RunTab = require('./app/tabs/run-tab')
 const FilePanel = require('./app/panels/file-panel')
 
@@ -240,7 +240,6 @@ module.exports = App
 
 function run () {
   var self = this
-  
   if (window.location.hostname === 'yann300.github.io') {
     modalDialogCustom.alert('This UNSTABLE ALPHA branch of Remix has been moved to http://ethereum.github.io/remix-live-alpha.')
   } else if (window.location.hostname === 'remix-alpha.ethereum.org' ||
@@ -408,7 +407,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
       appManager
   )
   let analysis = new AnalysisTab(registry)
-  //let debug = new DebuggerTab()
+  // let debug = new DebuggerTab()
   /*
   let test = new TestTab(
     registry.get('filemanager').api,
@@ -434,9 +433,9 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
   appManager.registerMany([
     compileTab.api(),
     run.api(),
-    //debug.api(),
+    // debug.api(),
     analysis.api(),
-    //test.api(),
+    // test.api(),
     filePanel.remixdHandle.api(),
     ...appManager.plugins()
   ])
@@ -463,7 +462,6 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
   if (filesToLoad !== null) {
     self.loadFiles(filesToLoad)
   }
-  
   /*
   const txLogger = new TxLogger() // eslint-disable-line
   txLogger.event.register('debuggingRequested', (hash) => {
@@ -487,7 +485,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
         if (['cortex', 'finney', 'cajal', 'turing'].indexOf(selectedUnit) >= 0) {
           unit = selectedUnit
         }
-        cb(null, executionContext.web3().toTuring(number, unit))
+        cb(null, executionContext.web3().toWei(number, unit))
       } catch (e) {
         cb(e)
       }
