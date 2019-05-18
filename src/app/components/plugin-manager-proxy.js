@@ -13,6 +13,7 @@ class PluginManagerProxy {
       registry.get('compilersartefacts').api['__last'] = new CompilerAbstract(languageVersion, data, source)
       this.event.trigger('sendCompilationResult', [file, source, languageVersion, data])
     }
+    
     this._listeners['solidity'] = (file, source, languageVersion, data) => {
       registry.get('compilersartefacts').api['__last'] = new CompilerAbstract(languageVersion, data, source)
       this.event.trigger('sendCompilationResult', [file, source, languageVersion, data])

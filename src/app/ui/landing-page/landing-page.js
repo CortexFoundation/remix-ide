@@ -138,7 +138,6 @@ export class LandingPage extends BaseApi {
       this.appManager.ensureActivated('run')
       globalRegistry.get('verticalicon').api.select('vyper')
     }
-
     let startPipeline = () => {
       this.appManager.ensureActivated('solidity')
       this.appManager.ensureActivated('pipeline')
@@ -173,7 +172,6 @@ export class LandingPage extends BaseApi {
         img.style.filter = `invert(${invert})`
       }
     })
-
     let container = yo`<div class="${css.homeContainer} bg-light">
       <div class="${css.jumbotronContainer}">
         <div class="alert alert-info clearfix ${css.thisJumboton}">
@@ -193,8 +191,8 @@ export class LandingPage extends BaseApi {
           <div class="environment mb-5">
             <h4>Environments</h4>
             <div>
-              <button class="btn btn-lg btn-secondary ${css.solidityBtn}" onclick=${() => { startSolidity() }}>Solidity</button>
               <button class="btn btn-lg btn-secondary" onclick=${() => { startVyper() }}>Vyper</button>
+              <button class="btn btn-lg btn-secondary ${css.solidityBtn}" onclick=${() => { startSolidity() }}>Solidity</button>
             </div>
           </div>
           <div class="file">
