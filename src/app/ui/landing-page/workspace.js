@@ -42,6 +42,6 @@ export const defaultWorkspaces = (appManager) => {
       appManager.ensureActivated('pipeline')
       appManager.ensureActivated('run')
     })
-    */
+    
   ]
 }

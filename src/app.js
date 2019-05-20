@@ -35,7 +35,7 @@ const PluginManagerComponent = require('./app/components/plugin-manager-componen
 
 const CompileTab = require('./app/tabs/compile-tab')
 const SettingsTab = require('./app/tabs/settings-tab')
-// const AnalysisTab = require('./app/tabs/analysis-tab')
+const AnalysisTab = require('./app/tabs/analysis-tab')
 // const DebuggerTab = require('./app/tabs/debugger-tab')
 // const TestTab = require('./app/tabs/test-tab')
 const RunTab = require('./app/tabs/run-tab')
@@ -406,7 +406,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
       registry.get('editor').api,
       appManager
   )
-  // let analysis = new AnalysisTab(registry)
+  let analysis = new AnalysisTab(registry)
   // let debug = new DebuggerTab()
   /*
   letss test = new TestTab(
@@ -481,8 +481,8 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
         var select = document.getElementById('unit')
         var index = select.selectedIndex
         var selectedUnit = select.querySelectorAll('option')[index].dataset.unit
-        var unit = 'cortex' // default
-        if (['cortex', 'finney', 'cajal', 'turing'].indexOf(selectedUnit) >= 0) {
+        var unit = 'ether' // default
+        if (['ether', 'finney', 'gwei', 'wei'].indexOf(selectedUnit) >= 0) {
           unit = selectedUnit
         }
         cb(null, executionContext.web3().toWei(number, unit))
