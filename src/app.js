@@ -436,7 +436,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
     // debug.api(),
     analysis.api(),
     // test.api(),
-    filePanel.remixdHandle.api(),
+    //filePanel.remixdHandle.api(),
     ...appManager.plugins()
   ])
 

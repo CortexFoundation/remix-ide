@@ -323,7 +323,7 @@ class Recorder {
             // removed, but for now keeping the original logic
             try {
               var fee = executionContext.web3().toBigNumber(tx.gas).mul(executionContext.web3().toBigNumber(executionContext.web3().toWei(gasPrice.toString(10), 'wei')))
-              txFeeText = ' ' + executionContext.web3().fromWei(fee.toString(10), 'ether') + ' ether'
+              txFeeText = ' ' + executionContext.web3().fromWei(fee.toString(10), 'ether') + ' cortex'
               priceStatus = true
             } catch (e) {
               txFeeText = ' Please fix this issue before sending any transaction. ' + e.message
