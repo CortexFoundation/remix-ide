@@ -22,7 +22,7 @@ class CompilerContainer {
       timeout: 300,
       allversions: null,
       selectedVersion: null,
-      defaultVersion: 'soljson-v0.4.18+commit.9cf6e910.js',
+      defaultVersion: 'soljson-v0.4.24+commit.e67f0147.js',
       // defaultVersion: 'soljson-v0.5.1+commit.c8a2cb62.js', // this default version is defined: in makeMockCompiler (for browser test) and in package.json (downloadsolc_root) for the builtin compiler
       baseurl: 'https://solc-bin.ethereum.org/bin'
     }
@@ -246,15 +246,6 @@ class CompilerContainer {
           const data = JSON.parse(json)
           
           allversions = [{
-            "path": "soljson-v0.4.18+commit.9cf6e910.js",
-            "version": "0.4.18",
-            "build": "commit.9cf6e910",
-            "longVersion": "0.4.18+commit.9cf6e910",
-            "keccak256": "0x0478b43de978b1af1d6d6d8c09e84cdb2cc8ed76218d38f17b841b6e539742f0",
-            "urls": [
-              "bzzr://bacf94b83b539b0a704236daf9fd9083766905760e39d1372fdefad9a53ea26f"
-            ]
-          },{
             "path": "soljson-v0.4.24+commit.e67f0147.js",
             "version": "0.4.24",
             "build": "commit.e67f0147",
