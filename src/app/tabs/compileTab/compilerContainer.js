@@ -22,7 +22,8 @@ class CompilerContainer {
       timeout: 300,
       allversions: null,
       selectedVersion: null,
-      defaultVersion: 'soljson-v0.5.1+commit.c8a2cb62.js', // this default version is defined: in makeMockCompiler (for browser test) and in package.json (downloadsolc_root) for the builtin compiler
+      defaultVersion: 'soljson-v0.4.18+commit.9cf6e910.js',
+      // defaultVersion: 'soljson-v0.5.1+commit.c8a2cb62.js', // this default version is defined: in makeMockCompiler (for browser test) and in package.json (downloadsolc_root) for the builtin compiler
       baseurl: 'https://solc-bin.ethereum.org/bin'
     }
   }
@@ -112,12 +113,13 @@ class CompilerContainer {
 
   render () {
     this.compileTabLogic.compiler.event.register('compilerLoaded', (version) => this.setVersionText(version))
+    
     this.fetchAllVersion((allversions, selectedVersion) => {
       this.data.allversions = allversions
       this.data.selectedVersion = selectedVersion
       if (this._view.versionSelector) this._updateVersionSelector()
     })
-
+    
     this._view.warnCompilationSlow = yo`<i title="Compilation Slow" style="visibility:hidden" class="${css.warnCompilationSlow} fas fa-exclamation-triangle" aria-hidden="true"></i>`
     this._view.compileIcon = yo`<i class="fas fa-sync ${css.icon}" aria-hidden="true"></i>`
     this._view.autoCompile = yo`<input class="${css.autocompile}" onchange=${this.updateAutoCompile.bind(this)} id="autoCompile" type="checkbox" title="Auto compile">`
@@ -242,9 +244,31 @@ class CompilerContainer {
       if (event.type !== 'error') {
         try {
           const data = JSON.parse(json)
-          allversions = data.builds.slice().reverse()
+          
+          allversions = [{
+            "path": "soljson-v0.4.18+commit.9cf6e910.js",
+            "version": "0.4.18",
+            "build": "commit.9cf6e910",
+            "longVersion": "0.4.18+commit.9cf6e910",
+            "keccak256": "0x0478b43de978b1af1d6d6d8c09e84cdb2cc8ed76218d38f17b841b6e539742f0",
+            "urls": [
+              "bzzr://bacf94b83b539b0a704236daf9fd9083766905760e39d1372fdefad9a53ea26f"
+            ]
+          },{
+            "path": "soljson-v0.4.24+commit.e67f0147.js",
+            "version": "0.4.24",
+            "build": "commit.e67f0147",
+            "longVersion": "0.4.24+commit.e67f0147",
+            "keccak256": "0xee322e8f3117fcd7c196e88407d938846c096a3c62a51debd8a646f3aa228fcb",
+            "urls": [
+              "bzzr://bbcf75b3549aaa4b68bdd805e5c5b8a0b0be6a964e068b7ef36c48431f44e8e1"
+            ]
+          }]
+           
+          // allversions = data.builds.slice(0,9).reverse()
           selectedVersion = this.data.defaultVersion
           if (this.queryParams.get().version) selectedVersion = this.queryParams.get().version
+          // if (this.queryParams.get().version) selectedVersion = this.data.defaultVersion  
         } catch (e) {
           addTooltip('Cannot load compiler version list. It might have been blocked by an advertisement blocker. Please try deactivating any of them from this page and reload.')
         }

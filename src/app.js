@@ -35,7 +35,7 @@ const PluginManagerComponent = require('./app/components/plugin-manager-componen
 
 const CompileTab = require('./app/tabs/compile-tab')
 const SettingsTab = require('./app/tabs/settings-tab')
-const AnalysisTab = require('./app/tabs/analysis-tab')
+// const AnalysisTab = require('./app/tabs/analysis-tab')
 // const DebuggerTab = require('./app/tabs/debugger-tab')
 // const TestTab = require('./app/tabs/test-tab')
 const RunTab = require('./app/tabs/run-tab')
@@ -406,7 +406,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
       registry.get('editor').api,
       appManager
   )
-  let analysis = new AnalysisTab(registry)
+  // let analysis = new AnalysisTab(registry)
   // let debug = new DebuggerTab()
   /*
   letss test = new TestTab(
@@ -434,7 +434,7 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
     compileTab.api(),
     run.api(),
     // debug.api(),
-    analysis.api(),
+    // analysis.api(),
     // test.api(),
     //filePanel.remixdHandle.api(),
     ...appManager.plugins()
