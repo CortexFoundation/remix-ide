@@ -241,6 +241,7 @@ class CompilerContainer {
     minixhr(`${this.data.baseurl}/list.json`, (json, event) => {
       // @TODO: optimise and cache results to improve app loading times
       var allversions, selectedVersion
+      /*
       if (event.type !== 'error') {
         try {
           const data = JSON.parse(json)
@@ -267,6 +268,9 @@ class CompilerContainer {
         allversions = [{ path: 'builtin', longVersion: 'latest local version' }]
         selectedVersion = 'builtin'
       }
+      */
+      allversions = [{ path: 'builtin', longVersion: 'latest local version' }]
+      selectedVersion = 'builtin'
       callback(allversions, selectedVersion)
     })
   }
