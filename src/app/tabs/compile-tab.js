@@ -192,10 +192,12 @@ class CompileTab extends CompilerApi {
       </div>
         
       <article class="${css.compilerArticle}">
+        <!--
         <button class="btn btn-secondary btn-block" title="Publish on Swarm" onclick="${() => { this.publish() }}">
           <i class="${css.copyIcon} fas fa-upload" aria-hidden="true"></i>
           <span>Publish on Swarm</span>
         </button>
+        -->
         <button class="btn btn-secondary btn-block" title="Display Contract Details" onclick="${() => { this.details() }}">
           Compilation Details
         </button>

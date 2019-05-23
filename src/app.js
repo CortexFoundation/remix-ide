@@ -22,7 +22,7 @@ var Renderer = require('./app/ui/renderer')
 var executionContext = require('./execution-context')
 var examples = require('./app/editor/example-contracts')
 var modalDialogCustom = require('./app/ui/modal-dialog-custom')
-// var TxLogger = require('./app/execution/txLogger')
+var TxLogger = require('./app/execution/txLogger')
 var Txlistener = remixLib.execution.txListener
 var EventsDecoder = remixLib.execution.EventsDecoder
 var FileManager = require('./app/files/fileManager')
@@ -462,14 +462,14 @@ Please make a backup of your contracts and start using http://remix.ethereum.org
   if (filesToLoad !== null) {
     self.loadFiles(filesToLoad)
   }
-  /*
+  
   const txLogger = new TxLogger() // eslint-disable-line
   txLogger.event.register('debuggingRequested', (hash) => {
     if (!appStore.isActive('debugger')) appManager.activateOne('debugger')
     debug.debugger().debug(hash)
     verticalIcons.select('debugger')
   })
-  */
+
 
   let transactionContextAPI = {
     getAddress: (cb) => {

@@ -313,7 +313,7 @@ function context (self, opts) {
           <span class=${css.tx}>[vm]</span>
           <div class=${css.txItem}><span class=${css.txItemTitle}>from:</span> ${from}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>to:</span> ${to}</div>
-          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} wei</div>
+          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} turing</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>data:</span> ${input}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>logs:</span> ${logs}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>hash:</span> ${hash}</div>
@@ -326,7 +326,7 @@ function context (self, opts) {
           <span class='${css.tx}'>[block:${block} txIndex:${i}]</span>
           <div class=${css.txItem}><span class=${css.txItemTitle}>from:</span> ${from}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>to:</span> ${to}</div>
-          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} wei</div>
+          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} turing</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>data:</span> ${input}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>logs:</span> ${logs}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>hash:</span> ${hash}</div>
@@ -341,7 +341,7 @@ function context (self, opts) {
           <span class='${css.tx}'>[block:${block} txIndex:${i}]</span>
           <div class=${css.txItem}><span class=${css.txItemTitle}>from:</span> ${from}</div>
           <div class=${css.txItem}><span class=${css.txItemTitle}>to:</span> ${to}</div>
-          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} wei</div>
+          <div class=${css.txItem}><span class=${css.txItemTitle}>value:</span> ${value} turing</div>
         </span>
       </div>`
   }
@@ -550,8 +550,8 @@ function createTable (opts) {
   val = yo`
     <tr class="${css.tr}">
       <td class="${css.td}"> value </td>
-      <td class="${css.td}">${val} wei
-        ${copyToClipboard(() => `${val} wei`)}
+      <td class="${css.td}">${val} turing
+        ${copyToClipboard(() => `${val} turing`)}
       </td>
     </tr>
   `
