@@ -253,6 +253,7 @@ export class LandingPage extends BaseApi {
           <div class="resources">
             <h4>Resources</h4>
             <p class="mb-1"><a class="${css.text}" target="__blank" href="https://www.cortexlabs.ai/#top">Documentation</a></p>
+            <p class="mb-1"><a class="${css.text}" target="__blank" href="https://medium.com/cortexlabs">Medium Posts</a></p>
             <!--
             <p class="mb-1"><a class="${css.text}" target="__blank" href="https://remix.readthedocs.io/en/latest/#">Documentation</a></p>
             <p class="mb-1"><a class="${css.text}" target="__blank" href="https://gitter.im/ethereum/remix">Gitter channel</a></p>
