@@ -192,11 +192,13 @@ export class LandingPage extends BaseApi {
             <img id="remixLogo" src="${logo}" alt="remix logo">
           </div>
           <div class="${css.headlineContainer}">
-            <h2 class="">The new layout has arrived</h2>
+            <h2 class="">AI on Blockchain -- The Decentralized AI Autonomous System</h2>
           </div>
+          <!--
           <div class="${css.jumboBtnContainer}">
             <button class="btn btn-primary btn-lg" href="#" onclick=${() => { learnMore() }} role="button">Learn more</button>
           </div>
+          -->
         </div><!-- end of jumbotron -->
       </div><!-- end of jumbotron container -->
       <div class="row ${css.hpSections}">
@@ -225,6 +227,7 @@ export class LandingPage extends BaseApi {
             <!--
             <p class="mb-1 ${css.text}" onclick=${() => { connectToLocalhost() }}>Connect to Localhost</p>
             -->
+            <!--
             <p class="mb-1">Import From:</p>
             <div class="btn-group">
               <button class="btn btn-sm btn-secondary" onclick=${() => { importFromGist() }}>Gist</button>
@@ -233,7 +236,9 @@ export class LandingPage extends BaseApi {
               <button class="btn btn-sm btn-secondary" onclick=${() => { load('Ipfs', 'ipfs URL', ['ipfs://<ipfs-hash>']) }}>Ipfs</button>
               <button class="btn btn-sm btn-secondary" onclick=${() => { load('Https', 'http/https raw content', ['https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-solidity/master/contracts/crowdsale/validation/IndividuallyCappedCrowdsale.sol']) }}>https</button>
               <button class="btn btn-sm btn-secondary" onclick=${() => { load('@resolver-engine', 'resolver-engine URL', ['github:OpenZeppelin/openzeppelin-solidity/contracts/ownership/Ownable.sol#v2.1.2'], yo`<span>please checkout <a class='text-primary' href="https://github.com/Crypto-Punkers/resolver-engine" target='_blank'>https://github.com/Crypto-Punkers/resolver-engine</a> for more information</span>`) }}>Resolver-engine</button>
-            </div><!-- end of btn-group -->
+            </div>
+            -->
+            <!-- end of btn-group -->
           </div><!-- end of div.file -->
         </div><!-- end of #col1 -->
         <div id="col2" class="col-sm-6">

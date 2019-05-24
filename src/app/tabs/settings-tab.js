@@ -85,14 +85,15 @@ module.exports = class SettingsTab extends BaseApi {
 
     this._view.themes = this._deps.themeModule.getThemes()
     this._view.themesCheckBoxes = this.createThemeCheckies()
+    /*
     this._view.config.homePage = yo`
-
     <div class="${css.info} card">
       <div class="card-body">
       <h6 class="${css.title} card-title">Have a question?</h6>
       <button class="btn btn-primary sm-1" onclick="${() => { window.open('https://gitter.im/ethereum/remix') }}">Gitter Channel</button>
       </div>
     </div>`
+    */
     this._view.config.general = yo`
       <div class="${css.info} card">
         <div class="card-body">
@@ -103,7 +104,7 @@ module.exports = class SettingsTab extends BaseApi {
           </div>
           <div class="form-check ${css.frow}">
             <div>${this._view.optionVM}</div>
-            <label class="form-check-label align-middle" for="alwaysUseVM">Always use Ethereum VM at Load</label>
+            <label class="form-check-label align-middle" for="alwaysUseVM">Always use Cortex VM at Load</label>
           </div>
           <div class="form-check ${css.frow}">
             <div><input id="editorWrap" class="form-check-input align-middle" type="checkbox" onchange=${function () { this.editor.resize(this.checked) }}></div>

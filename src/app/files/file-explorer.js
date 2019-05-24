@@ -400,7 +400,7 @@ fileExplorer.prototype.toGist = function (id) {
           'Remix requires an access token (which includes gists creation permission). Please go to the settings tab to create one.'
         )
       } else {
-        var description = 'Created using remix-ide: Realtime Ethereum Contract Compiler and Runtime. \n Load this file by pasting this gists URL or ID at https://remix.ethereum.org/#version=' +
+        var description = 'Created using remix-ide: Realtime Cortex Contract Compiler and Runtime. \n Load this file by pasting this gists URL or ID at https://remix.ethereum.org/#version=' +
           queryParams.get().version +
           '&optimize=' +
           queryParams.get().optimize +
@@ -463,7 +463,7 @@ fileExplorer.prototype.copyFiles = function () {
   modalDialogCustom.prompt(
     'Copy files from browser explorer',
     'To which other remix-ide instance do you want to copy over all files?',
-    'https://remix.ethereum.org',
+    '',
     (target) => {
       doCopy(target)
     }

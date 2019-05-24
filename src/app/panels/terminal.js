@@ -421,7 +421,7 @@ class Terminal extends BaseApi {
                   </div>`
 
     self._shell('remix.help()', self.commands, () => {})
-    self.commands.html(intro)
+    // self.commands.html(intro)
     return self._view.el
 
     function change (event) {
