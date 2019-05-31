@@ -129,8 +129,8 @@ export class LandingPage extends BaseApi {
       closeAll()
       this.appManager.ensureActivated('solidity')
       this.appManager.ensureActivated('run')
-      this.appManager.ensureActivated('solidityStaticAnalysis')
-      this.appManager.ensureActivated('solidityUnitTesting')
+      // this.appManager.ensureActivated('solidityStaticAnalysis')
+      // this.appManager.ensureActivated('solidityUnitTesting')
       globalRegistry.get('verticalicon').api.select('solidity')
     }
     /*

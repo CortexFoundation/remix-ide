@@ -184,14 +184,20 @@ class CompileTab extends CompilerApi {
    * @param {string[]} contractList Names of the compiled contracts
    */
   contractSelection (contractList = [], sourceFile) {
-    return contractList.length !== 0
+      let selectEl = yo`
+      <select
+        onchange="${e => this.selectContract(e.target.value)}"
+        id="compiledContracts" class="custom-select"
+      >
+        ${contractList.map((name) => yo`<option value="${name}">${name}</option>`)}
+      </select>
+    `
+    let result = contractList.length
     ? yo`<section class="${css.container} clearfix">
       <!-- Select Compiler Version -->
       <div class="navbar navbar-light bg-light input-group mb-3">
-          <label class="border-0 input-group-text" for="compiledContracts">Contract</label>
-          <select onchange="${e => this.selectContract(e.target.value)}" onload="${e => { this.selectedContract = e.value }}" id="compiledContracts" class="custom-select">
-          ${contractList.map((name) => yo`<option value="${name}">${name}</option>`)}
-        </select>  
+        <label class="border-0 input-group-text" for="compiledContracts">Contract</label>
+        ${selectEl}
       </div>
         
       <article class="${css.compilerArticle}">
@@ -224,6 +230,13 @@ class CompileTab extends CompilerApi {
     : yo`<section class="${css.container} clearfix"><article class="${css.compilerArticle}">
       <span class="alert alert-warning" role="alert">No Contract Compiled Yet</span>
     </article></section>`
+
+    if (contractList.length) {
+      this.selectedContract = selectEl.value
+    } else {
+      delete this.selectedContract
+    }
+    return result
   }
 
   // TODO : Add success alert when compilation succeed
@@ -371,11 +384,12 @@ class CompileTab extends CompilerApi {
   render () {
     if (this._view.el) return this._view.el
     this.listenToEvents()
-    this.compilerContainer.activate()
-
+    
     this._view.errorContainer = yo`<div class="${css.errorBlobs}"></div>`
     this._view.contractSelection = this.contractSelection()
     this._view.compilerContainer = this.compilerContainer.render()
+    
+    this.compilerContainer.activate()
 
     this._view.el = yo`
       <div id="compileTabView">
