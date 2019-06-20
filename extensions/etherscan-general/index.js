@@ -6,7 +6,7 @@ var network
 var currentNetWork = ''
 var networks = {
   'Cerebro': 'cerebro',
-  'Main': '',
+  'Main': 'mainnet',
   'Ropsten': 'ropsten',
   'Kovan': 'kovan',
   'Rinkeby': 'rinkeby'
